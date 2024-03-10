@@ -1,0 +1,39 @@
+<!-- Boxovi proizvoda -->
+<div class="product-fox">
+    <div class="product-nox">
+        <img src="images/jabuka.png" alt="Voće 1">
+        <div class="action-label">AKCIJA %</div>
+        <h3>ZELENA JABUKA</h3>
+        <div class="line"></div>
+        <p class="product-price">2KM</p>
+        <div class="quantity-container">
+            <input type="number" value="1" min="1" max="10" class="quantity-input">
+            <span class="kg-label">KG</span>
+        </div>
+        <p class="dodaj-u-korpu">Dodaj</p> <!-- Promijenili smo klasu da odgovara funkcionalnosti -->
+    </div>
+    
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('.dodaj-u-korpu');
+    
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = button.parentElement.querySelector('h3').textContent;
+                const productInfo = {
+                    naziv: productName,
+                    cijena: '2KM', // Ovdje možete postaviti stvarnu cijenu
+                    imageUrl: button.parentElement.querySelector('images/jabuka.png').src // Čitanje URL slike
+                };
+    
+                let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+                proizvodiUKorpi.push(productInfo);
+                localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+    
+                alert('Proizvod je dodat u korpu!');
+            });
+        });
+    });
+    
+    </script>
