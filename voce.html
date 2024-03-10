@@ -200,166 +200,138 @@
     </div>
 
     
-<!-- Boxovi proizvoda -->
+<!-- HTML dio za jabuku -->
 <div class="product-fox">
-    <div class="product-nox">
-        <img src="images/jabuka.png" alt="Voće 1">
-        <div class="action-label">AKCIJA %</div>
-        <h3>ZELENA JABUKA</h3>
-        <div class="line"></div>
-        <p class="product-price">$10</p>
-        <div class="quantity-container">
-            <input type="number" value="1" min="1" max="10" class="quantity-input">
-            <span class="kg-label">KG</span>
-        </div>
-        <p class="dodaj-u-korpu">Dodaj</p> <!-- Promijenili smo klasu da odgovara funkcionalnosti -->
+<div class="product-nox">
+    <img src="images/jabuka.png" alt="Voće 1">
+    <div class="action-label">AKCIJA %</div>
+    <h3>ZELENA JABUKA</h3>
+    <div class="line"></div>
+    <p class="product-price">3KM</p>
+    <div class="quantity-container">
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
+    <p class="dodaj-u-korpu" data-product-id="jabuka">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
+</div>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtonJabuka = document.querySelector('.product-nox .dodaj-u-korpu');
-
-    addToCartButtonJabuka.addEventListener('click', function() {
-        const productName = this.parentElement.querySelector('h3').textContent;
-        const productInfo = {
-            id: generateProductId(productName),
-            naziv: productName,
-            cijena: '1KM', // Ovdje možete postaviti stvarnu cijenu
-            imageUrl: 'images/jabuka.png' // Ovdje možete postaviti stvarnu URL sliku
-        };
-
-        let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
-        proizvodiUKorpi.push(productInfo);
-        localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
-
-        alert('Proizvod je dodat u korpu!');
-    });
-});
-
-function generateProductId(productName) {
-    const hashCode = productName.split('').reduce((acc, char) => {
-        return acc + char.charCodeAt(0);
-    }, 0);
-    return hashCode;
-}
-</script>
-
-<!-- Boxovi proizvoda -->
-
-    <div class="product-nox">
-        <img src="images/kruska.png" alt="Voće 1">
-        <div class="action-label">AKCIJA %</div>
-        <h3>KRUSKA</h3>
-        <div class="line"></div>
-        <p class="product-price">$10</p>
-        <div class="quantity-container">
-            <input type="number" value="1" min="1" max="10" class="quantity-input">
-            <span class="kg-label">KG</span>
-        </div>
-        <p class="dodaj-u-korpu">Dodaj</p> <!-- Promijenili smo klasu da odgovara funkcionalnosti -->
+<!-- HTML dio za krušku -->
+<div class="product-nox">
+    <img src="images/kruska.png" alt="Voće 1">
+    <div class="action-label">AKCIJA %</div>
+    <h3>KRUSKA</h3>
+    <div class="line"></div>
+    <p class="product-price">5KM</p>
+    <div class="quantity-container">
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtonKruska = document.querySelectorAll('.product-nox .dodaj-u-korpu')[1];
-
-    addToCartButtonKruska.addEventListener('click', function() {
-        const productName = this.parentElement.querySelector('h3').textContent;
-        const productInfo = {
-            id: generateProductId(productName),
-            naziv: productName,
-            cijena: '1KM', // Ovdje možete postaviti stvarnu cijenu
-            imageUrl: 'images/kruska.png' // Ovdje možete postaviti stvarnu URL sliku
-        };
-
-        let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
-        proizvodiUKorpi.push(productInfo);
-        localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
-
-        alert('Proizvod je dodat u korpu!');
-    });
-});
-</script>
-
-
-
+    <p class="dodaj-u-korpu" data-product-id="kruska">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
+</div>
 
 <div class="product-nox">
     <img src="images/limun.png" alt="Voće 1">
-    <div class="action-label">AKCIJA %</div> <!-- Pomjerite oznaku akcije unutar boxa -->
     <h3>LIMUN</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
+    <div class="line"></div>
+    <p class="product-price">2.25KM</p>
     <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-    <p class="add-to-cart">Dodaj</p>
+    <p class="dodaj-u-korpu" data-product-id="limun">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
 </div>
-        
+
 <div class="product-nox">
-    <img src="images/grejfut.png" alt="Voće 1"> 
+    <img src="images/grejfut.png" alt="Voće 1">
     <h3>GREJFUT</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
+    <div class="line"></div>
+    <p class="product-price">5.55KM</p>
     <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-    <p class="add-to-cart">Dodaj</p>
+    <p class="dodaj-u-korpu" data-product-id="grejfut">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
 </div>
-        
-<div class="product-nox">
-    <img src="images/narandza.png" alt="Voće 1">
-    <div class="action-label">AKCIJA %</div> <!-- Pomjerite oznaku akcije unutar boxa -->
-    <h3>NARANDZA</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
-    <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
-    </div>
-    <p class="add-to-cart">Dodaj</p>
-</div>
-        
+
 <div class="product-nox">
     <img src="images/banana.png" alt="Voće 1">
+    <div class="action-label">AKCIJA %</div>
     <h3>BANANA</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
+    <div class="line"></div>
+    <p class="product-price">1.20KM</p>
     <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-    <p class="add-to-cart">Dodaj</p>
+    <p class="dodaj-u-korpu" data-product-id="banana">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
+</div>
+
+<div class="product-nox">
+    <img src="images/narandza.png" alt="Voće 1">
+    <h3>NARANDZA</h3>
+    <div class="line"></div>
+    <p class="product-price">2.00KM</p>
+    <div class="quantity-container">
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
+    </div>
+    <p class="dodaj-u-korpu" data-product-id="narandza">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
 </div>
 
 <div class="product-nox">
     <img src="images/luk.png" alt="Voće 1">
-    <div class="action-label">AKCIJA %</div> <!-- Pomjerite oznaku akcije unutar boxa -->
     <h3>LUK</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
+    <div class="line"></div>
+    <p class="product-price">1.00KM</p>
     <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-    <p class="add-to-cart">Dodaj</p>
+    <p class="dodaj-u-korpu" data-product-id="luk">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
 </div>
-        
+
 <div class="product-nox">
-    <img src="images/grah.png" alt="Voće 1"> 
+    <img src="images/grah.png" alt="Voće 1">
+    <div class="action-label">AKCIJA %</div>
     <h3>GRAH</h3>
-    <div class="line"></div> <!-- Horizontalna linija -->
-    <p class="product-price">$10</p>
+    <div class="line"></div>
+    <p class="product-price">2.10KM</p>
     <div class="quantity-container">
-        <input type="number" value="1" min="1" max="10" class="quantity-input"> <!-- Polje za unos broja -->
-        <span class="kg-label">KG</span> <!-- Oznaka "kg" -->
+        <input type="number" value="1" min="1" max="10" class="quantity-input">
+        <span class="kg-label">KG</span>
     </div>
-    <p class="add-to-cart">Dodaj</p>
+    <p class="dodaj-u-korpu" data-product-id="grah">Dodaj</p> <!-- Dodali smo atribut data-product-id -->
 </div>
+
+<!-- JavaScript dio -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.dodaj-u-korpu');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id'); // Dobijemo ID proizvoda iz atributa
+            const productName = this.parentElement.querySelector('h3').textContent;
+            const productPrice = this.parentElement.querySelector('.product-price').textContent;
+
+            const productInfo = {
+                id: productId,
+                naziv: productName,
+                cijena: productPrice,
+                imageUrl: `images/${productId}.png` // Pretpostavljamo da slike imaju isti naziv kao ID proizvoda
+            };
+
+            let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+            proizvodiUKorpi.push(productInfo);
+            localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+
+            alert('Proizvod je dodat u korpu!');
+        });
+    });
+});
+</script>
+
+
 </div>
 </div>
    
