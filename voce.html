@@ -86,9 +86,6 @@
         <ul>
             <li><a href="index.html">HOME</a></li>
             <li><a href="buketi.html" style="color: red;">AKCIJA</a></li>
-
-            <li><a href="godisnjice.html">GODIŠNJICE</a></li>
-            <li><a href="#">VJENČANJA</a></li>
             <li><a href="galerija.html">GALERIJA</a></li>
             <li><a href="contact.html">KONTAKT</a></li>
             <li><a href="about.html">O NAMA</a></li>
@@ -305,20 +302,25 @@
 
 <!-- JavaScript dio -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.dodaj-u-korpu');
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const productId = this.getAttribute('data-product-id'); // Dobijemo ID proizvoda iz atributa
+            const productId = this.getAttribute('data-product-id'); 
             const productName = this.parentElement.querySelector('h3').textContent;
-            const productPrice = this.parentElement.querySelector('.product-price').textContent;
+            let productPrice = parseFloat(this.parentElement.querySelector('.product-price').textContent); // Pretvaranje cijene u broj
+            const productQuantity = this.parentElement.querySelector('.quantity-input').value;
+            
+            // Izračunajte novu cijenu na osnovu količine
+            productPrice *= parseFloat(productQuantity);
 
             const productInfo = {
                 id: productId,
                 naziv: productName,
-                cijena: productPrice,
-                imageUrl: `images/${productId}.png` // Pretpostavljamo da slike imaju isti naziv kao ID proizvoda
+                cijena: productPrice.toFixed(2), // Zaokružujemo cijenu na dvije decimale
+                količina: productQuantity,
+                imageUrl: `images/${productId}.png`
             };
 
             let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
@@ -329,7 +331,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
+
+    </script>
+    
 
 
 </div>
